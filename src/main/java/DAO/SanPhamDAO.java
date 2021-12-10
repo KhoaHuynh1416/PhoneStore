@@ -34,7 +34,7 @@ public class SanPhamDAO {
 public ArrayList docDSSP() throws Exception{
     ArrayList dssp = new ArrayList<>();
 
-    String qry = "Select * From sanpham";
+    String qry = "CALL getSanphamAll()";
     ResultSet rs = MyConn.excuteQuery(qry);
 
     while(rs.next()){
@@ -107,7 +107,7 @@ public SanPhamDTO getSanphamByMaSP(String maSP) throws Exception {
         
         Connection connection = JDBCConnection.getConnection();
         
-        String sql = "SELECT * FROM SANPHAM WHERE MASP = ?";
+        String sql = "CALL getSanphamByMaSP(?)";
         
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
